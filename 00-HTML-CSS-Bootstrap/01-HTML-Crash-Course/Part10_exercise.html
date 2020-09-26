@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Part 10</title>
+</head>
+<body>
+    <H1>Puppy Adoption Page</H1>
+    <H2>Please enter your information to adopt a puppy and we'll email you back.</H2>
+    <p>Please Note: First Name, Last Name, Password, and Email are required</p>
+    <form action="C:\Python_Data_Science\others\Flask-Bootcamp-master\00-HTML-CSS-Bootstrap\01-HTML-Crash-Course\Part10_exercise.html" method="GET">
+    <!-- no need to enter the path of the current path, leave action="" -->
+        <label for="firstname">First Name:</label>
+        <!-- we don't set any name to this input because we won't need to GET it -->
+        <input type="text" name="" id="firstname" placeholder="First Name">
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="" id="lastname" placeholder="Last Name">
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="" id="email" placeholder="name@email.com">
+        <label for="password">Password:</label>
+        <input type="password" name="" id="password">
+        <!-- no information is trully required in the exercise -->
+        <br>
+
+        <p>Are you over the age of 18?</p>
+        <label for="yes">Yes:</label>
+        <!-- the value of the radio will be passed over GET as 'Over18' -->
+        <input type="radio" name="Over18" id="yes" value="yes"
+        <label for="no">No:</label>
+        <input type="radio" name="Over18" id="no" value="no">
+
+        <p>Do you have a Credit Card of PayPal?</p>
+        <select name="payment" id="">
+            <option value="cc">Credit Card</option>
+            <option value="pp">PayPal</option>
+        </select>
+        <br><br>
+
+        <!-- button != submit! -->
+        <input type="submit" value="Submit Feedback">
+    </form>
+</body>
+</html>
