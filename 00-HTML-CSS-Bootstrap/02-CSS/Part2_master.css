@@ -9,7 +9,7 @@ div{
   border: orange;
   border-width: thick; /* 10 px */
   border-style: dotted;
-
+  /* can combine all in one line as <border:orange 10px solid;> */
   }
 
 p{

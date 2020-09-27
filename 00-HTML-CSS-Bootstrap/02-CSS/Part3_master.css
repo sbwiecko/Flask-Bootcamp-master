@@ -2,9 +2,10 @@
 
 /*  http://www.w3schools.com/cssref/css_selectors.asp */
 /*  https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors  */
-/*  https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors */
-/*Class selectors start with a dot . */
 
+
+/*Class selectors start with a dot .
+*/
 .firstDiv{
   color: blue;
 }
@@ -15,7 +16,8 @@
 
 /* Use an id to single out html elements*/
 
-/* id selectors use a hashtag # */
+/* id selectors use a hashtag #
+*/
 #singledout{
   color: red;
   text-decoration: underline;

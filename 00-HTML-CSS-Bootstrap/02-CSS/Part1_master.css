@@ -19,12 +19,14 @@ h1{
 
 li {
   color: rgb(0,200,0);
+  font-weight: bold;
+  font-size: 14px;
 }
 
 p{
-  color: #000000;
+  color: #a86fa4;
 }
 
 h4{
-  color: rgba(13,90,140,0.5)
+  color: rgba(13,90,140,0.5) /* alpha for transparency */
 }
