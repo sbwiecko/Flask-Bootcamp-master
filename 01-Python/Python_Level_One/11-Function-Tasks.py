@@ -8,15 +8,14 @@
 #
 # The tasks will start off easy and proceed to get harder and harder.
 
+
 # ## Task 1
 #
 #  Create a function that takes in two integers and returns
 ## a Boolean True if their sum is 10, False if their sum is something else.
 
 def check_ten(n1,n2):
-    # Code Here
-    pass
-
+    return n1+n2==10
 
 
 # ## Task 2
@@ -25,9 +24,7 @@ def check_ten(n1,n2):
 # sum is 10, otherwise, return the actual sum value.
 
 def check_ten_sum(n1,n2):
-    # Code Here
-    pass
-
+    return True if n1+n2==10 else n1+n2
 
 
 # ## Task 3
@@ -35,11 +32,8 @@ def check_ten_sum(n1,n2):
 # Create a function that takes in a string and returns back the
 # first character of that string in upper case.
 
-
-
 def first_upper(mystring):
-    # Code Here
-
+    return mystring[0].upper()
 
 
 # ## Task 4
@@ -49,11 +43,8 @@ def first_upper(mystring):
 # Use this link if you need help/hint.
 # (https://stackoverflow.com/questions/7983820/get-the-last-4-characters-of-a-string)
 
-
-
 def last_two(mystring):
-    # Code Here
-    pass
+    return mystring[-2:] if len(mystring)>1 else "Error"
 
 
 # ## Task 5
@@ -61,13 +52,11 @@ def last_two(mystring):
 # Given a list of integers, return True if the sequence [1,2,3] is somewhere
 # in the list. Hint: Use slicing and a for loop.
 
-
-
 def seq_check(nums):
-
-    # Code here
-
-    pass
+    if len(nums) < 3: return False
+    for i in range(len(nums) - 2):   # range(0) gives an empty range!
+        if nums[i:i+3] == [1,2,3]: return True
+    return False
 
 
 # ## Task 6
@@ -76,12 +65,8 @@ def seq_check(nums):
 # between them. This difference in length should always be a positive number
 # (or just 0). Hint: Absolute Value.**
 
-
-
 def compare_len(s1,s2):
-    # Code Here
-    pass
-
+    return abs(len(s1) - len(s2))
 
 
 # ## Task 7
@@ -90,9 +75,5 @@ def compare_len(s1,s2):
 # return the sum of the list. If the length of the list is odd, return the max
 ## value in that list.
 
-
-
 def sum_or_max(mylist):
-
-    # Code Here
-    pass
+    return max(mylist) if len(mylist) % 2 else sum(mylist)

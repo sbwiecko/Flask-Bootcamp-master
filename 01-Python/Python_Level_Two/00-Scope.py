@@ -126,7 +126,7 @@ print('x is still', x)
 
 
 # The first time that we print the value of the name x with the first line in
-# the function’s body, Python uses the value of the parameter declared in the
+# the function's body, Python uses the value of the parameter declared in the
 # main block, above the function definition.
 #
 # Next, we assign the value 2 to x. The name x is local to our function. So,
@@ -150,7 +150,7 @@ print('x is still', x)
 # You can use the values of such variables defined outside the function
 # (assuming there is no variable with the same name within the function).
 # However, this is not encouraged and should be avoided since it becomes unclear
-# to the reader of the program as to where that variable’s definition is. Using
+# to the reader of the program as to where that variable's definition is. Using
 # the global statement makes it amply clear that the variable is defined
 # in an outermost block.
 #
