@@ -237,7 +237,7 @@ class Animal():
 
 class Dog(Animal):
     def __init__(self):
-        # Animal.__init__(self)
+        #Animal.__init__(self)   # super().__init__() or super(Animal, self)._init__()
         print("Dog created")
 
     def report(self):
