@@ -5,37 +5,37 @@
     <title>Forms - Labels and Validations</title>
   </head>
   <body>
-    <!--  You can specify the input type-->
-    <!--  Reference Links-->
-    <!-- http://www.w3schools.com/TAGs/att_input_type.asp -->
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
-
     <!--Actions: where we send the data -->
-    <!--Method: get/post HTTP method -->
+    <!--Method: GET/POST HTTP method -->
+    <!-- GET requests a representation of the specified resource -->
+    <!-- POST submits data to be processed -->
 
     <h1>Log In</h1>
     <h2>Please Input your Password and Email</h2>
 
     <!-- Two ways of using a Label-->
     <!-- Nested -->
-    <!-- for and id connection-->
+    <!-- for:id connection-->
 
-    <!-- Upon submitting the form will perform the action (a redirect) -->
+    <!-- Upon submitting the form will perform the action (redirection) -->
     <form action="http://www.google.com" method="get">
+
+      <!-- GET will pass to action the values from the form via GET e.g.,
+      https://www.google.com/?useremail=sebastien%40free.fr&password=password-->
 
       <label for="email">EMAIL:</label>
       <input type="email" id="email" name="useremail" value="Email Here">
-
-      <label for="pass">PASSWORD:</label>
+      <br>
+      <label for="pass">PASSWORD:</label>      <!-- understand the difference btw default value and placeholder-->
       <input type="password" id="pass" name="password" placeholder="Password">
-
+      <br>
       <!-- Validation -->
       <!-- Usually do a lot more validation with Backend-->
       <!-- Use the attribute: required to require input-->
 
       <label for="userinput">TEXT:</label>
       <input type="text" id="userinput" name="input" placeholder="Enter Text Here" required>
-
+      <br>
       <input type="submit" >
 
     </form>
