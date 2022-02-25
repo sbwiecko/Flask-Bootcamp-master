@@ -18,15 +18,16 @@ h1{
 }
 
 li {
-  color: rgb(0,200,0);
+  color: rgb(30,200,0);
   font-weight: bold;
   font-size: 14px;
 }
 
 p{
-  color: #a86fa4;
+  color: #a86fa4; /* use a color picker */
 }
 
 h4{
   color: rgba(13,90,140,0.5) /* alpha for transparency */
+  /* no need for semi-colon for one property but good practice
 }

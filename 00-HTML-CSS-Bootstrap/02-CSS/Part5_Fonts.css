@@ -1,28 +1,31 @@
-/*Fonts on Windows:
+/*
+* Fonts on Windows:
 https://en.wikipedia.org/wiki/List_of_typefaces_included_with_Microsoft_Windows
-Fonts on Macs:
-https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOSfon
-General Font Information:
-http://www.cssfontstack.com/*/
 
-/* Text Font and Size*/
+* Fonts on Macs:
+https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOSfon
+
+* General Font Information:
+http://www.cssfontstack.com/
+*/
+
+/* Text Font and Size and Properties */
 
 h1{
   font-family: 'Bungee Shade';
   /*font-family: cursive;*/
-}
-
-p{
-
-  font-family: monospace;
-}
-
-body{
-  font-size: 20px;
+  text-align: center;
 }
 
 p{
   font-size: 10px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+body{
+  font-size: 20px;
 }
 
 #two{
@@ -30,21 +33,11 @@ p{
 }
 
 
-/*Font Properties*/
-
-p{
-  font-style: italic;
-  font-weight: bold;
-}
-
-/*Text Properties*/
-h1{
-  text-align: center;
-}
-
 /*If you want to use your own downloaded custom fonts:*/
 
-/*@font-face{
+/*
+@font-face{
   font-family: your_font_name;
   src: url(path/to/woff_file.woff);
-}*/
+}
+*/
