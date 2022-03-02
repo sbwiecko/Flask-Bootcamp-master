@@ -32,3 +32,15 @@ func_in_mymodule()
 
 from mymodule import *
 func_in_mymodule()
+
+##########################
+# Packages and SubPackages
+
+from MainPackage import some_main_script
+from MainPackage.SubPackage import mysubscript
+
+# import the functions from the module and/or package
+some_main_script.report_main()
+mysubscript.sub_report()
+
+from MainPackage.some_main_script import report_main

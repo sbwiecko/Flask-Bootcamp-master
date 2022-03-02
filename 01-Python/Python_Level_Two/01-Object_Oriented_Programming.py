@@ -282,6 +282,11 @@ class Book():
         # Notice how this is return, NOT print()
         return f"Title:{self.title} , author:{self.author}, pages:{self.pages}"
 
+        # see https://stackoverflow.com/questions/1436703/what-is-the-difference-between-str-and-repr
+        # for an interesting discussion relating to the difference between __str__ and __repr__
+        # briefly, The goal of __repr__ is to be unambiguous, The goal of __str__ is to be readable
+        # Container’s __str__ uses contained objects’ __repr__
+
     def __len__(self):
         return self.pages
 
