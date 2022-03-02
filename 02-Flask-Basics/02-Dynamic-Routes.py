@@ -9,7 +9,11 @@ def index():
 def info():
     return '<h1>Puppies are cute!</h1>'
 
-@app.route('/puppy/<name>')
+# dynamic routes have 2 key aspects:
+# * a variable in the route <variable>
+# * a parameter passed in to the function
+
+@app.route('/puppy/<name>') # e.g., different users
 def puppy(name):
     # Page for an individual puppy.
     return '<h1>This is a page for {}<h1>'.format(name)
