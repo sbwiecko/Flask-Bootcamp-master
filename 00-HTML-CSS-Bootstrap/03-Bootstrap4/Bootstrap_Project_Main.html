@@ -2,29 +2,96 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Project</title>
-    <!-- Bootstrap CSS, JS, and jQuery -->
-
+    <title>Project -- Main Page</title>
     <!-- STEP 1: INSERT THE BOOTSTRAP 4 LINKS HERE -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </head>
   <body>
+    <!--STEP 2:  ADD A DARK NAVBAR HERE WITH A LINK TO A SEPARATE SIGN UP PAGE -->
+    <nav class="navbar navbar-dark bg-dark"> <!-- could put it inside a navbar-header div -->
+      <a class="nav-link" style="color: lightgrey;" href="C:\Users\WieckowskiSébastien\Documents\Flask-Bootcamp-master\00-HTML-CSS-Bootstrap\03-Bootstrap4\Bootstrap_Project_Main.html">WELCOME</a>
 
-    <nav >
-      <!--STEP 2:  ADD A DARK NAVBAR HERE WITH A LINK TO A SEPARATE SIGN UP PAGE -->
+      <a class="nav-link" style="color: lightgrey;" href="C:\Users\WieckowskiSébastien\Documents\Flask-Bootcamp-master\00-HTML-CSS-Bootstrap\03-Bootstrap4\Bootstrap_Project_Signup.html">Sign In</a>
     </nav>
 
-    <div>
-      <!-- STEP 3: CREATE A JUMBOTRON HERE WITH A HEADER AND SOME LOREM IPSUM -->
+    <!-- STEP 3: CREATE A JUMBOTRON HERE WITH A HEADER AND SOME LOREM IPSUM -->
+    <div class="container">
+      <!-- <div class="jumbotron"> -->
+      <!-- Jumbotrons are no longer supported in Bootstrap 5. However, you can use a <div> element 
+        and add special helper classes together with a color class to achieve the same effect -->
+      <div class="mt-2 p-2 bg-light rounded">
+        <h1 class="display-3">This is my proposal!</h1>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sunt asperiores voluptatem nemo rerum magni debitis ex odio, porro rem, alias quas ratione accusamus mollitia adipisci. Itaque voluptatem repudiandae illo.</p>
+
+        <!-- type Lorem100 and hit enter to generate the longer Lorem text -->
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis atque fuga voluptatibus quidem doloribus minus praesentium sapiente odit, rerum esse. Deserunt perferendis fugiat odit aperiam et! Nam animi provident error velit, aspernatur accusantium quisquam? Inventore ad id iure, quos itaque velit sit quis enim facilis reprehenderit! Dolorem pariatur velit fugiat eius eveniet officia sint esse error nobis architecto doloremque voluptatem vitae accusamus quisquam veritatis non rerum minus aut porro eum, tempora labore libero quasi amet? Dolorum numquam amet fuga blanditiis, facilis veniam libero eos quisquam, vero facere error nemo impedit saepe reprehenderit inventore, deserunt consequatur? Possimus beatae distinctio repudiandae aliquid!</p>
+      </div>
     </div>
 
     <!-- STEP 4: FIGURE OUT HOW TO PUT THESE IMAGE LINKS IN A CAROUSEL AT THE BOTTOM OF THE PAGE! -->
+    <!-- As a bonus question, figure out how to resize the images -->
+    <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+      </div>
 
-   src="https://images.unsplash.com/photo-1523626752472-b55a628f1acc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2e90eae0238ba64cc447f3be7f522c19&auto=format&fit=crop&w=1575&q=80"
-   src="https://images.unsplash.com/photo-1517519014922-8fc06b814a0e?ixlib=rb-0.3.5&s=612f05d638cc31fd235cbfb2d21bcfc0&auto=format&fit=crop&w=1352&q=80"
-   src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-0.3.5&s=b40cfb86768850f7623bfcfef2a5ba0f&auto=format&fit=crop&w=1575&q=80"
-   src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=71d59cd22de21da8d2939bc203617983&auto=format&fit=crop&w=1560&q=80"
-   src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&s=d68543202e54ab0235f6d1defcc4dfe7&auto=format&fit=crop&w=1575&q=80"
-   src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b1523dbf0339fcfcadbe96fe4eb2f8b2&auto=format&fit=crop&w=1410&q=80"
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img src="https://images.unsplash.com/photo-1523626752472-b55a628f1acc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2e90eae0238ba64cc447f3be7f522c19&auto=format&fit=crop&w=1575&q=80" class="d-block w-100" alt="Slide 1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Nice Poopy 1</h5>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="https://images.unsplash.com/photo-1517519014922-8fc06b814a0e?ixlib=rb-0.3.5&s=612f05d638cc31fd235cbfb2d21bcfc0&auto=format&fit=crop&w=1352&q=80" class="d-block w-100" alt="Slide 2">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Nice Poopy 2</h5>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-0.3.5&s=b40cfb86768850f7623bfcfef2a5ba0f&auto=format&fit=crop&w=1575&q=80" class="d-block w-100" alt="Slide 3">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Nice Poopy 3</h5>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=71d59cd22de21da8d2939bc203617983&auto=format&fit=crop&w=1560&q=80" class="d-block w-100" alt="Slide 4">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Nice Poopy 4</h5>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&s=d68543202e54ab0235f6d1defcc4dfe7&auto=format&fit=crop&w=1575&q=80" class="d-block w-100" alt="Slide 5">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Nice Poopy 5</h5>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b1523dbf0339fcfcadbe96fe4eb2f8b2&auto=format&fit=crop&w=1410&q=80" class="d-block w-100" alt="Slide 6">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Nice Poopy 6</h5>
+          </div>
+        </div>
+      </div>
 
+      <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </body>
 </html>
