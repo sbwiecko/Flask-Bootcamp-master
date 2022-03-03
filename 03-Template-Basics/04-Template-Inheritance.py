@@ -8,8 +8,7 @@ def index():
 
 @app.route('/puppy/<name>')
 def pup_name(name):
-    return render_template('04-Puppy.html',name=name)
-
+    return render_template('04-Puppy.html', name=name)
 
 
 if __name__ == '__main__':

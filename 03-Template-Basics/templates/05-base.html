@@ -8,6 +8,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- the arg passed to `url_for` as a string should match the coresponding function in the python file -->
       <a class="navbar-brand" href="{{url_for('index')}}">Home Page</a>
     </nav>
     {% block content %}
