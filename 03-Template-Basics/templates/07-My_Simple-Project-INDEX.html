@@ -1,0 +1,33 @@
+{% extends "07-My_Simple-Project-BASE.html"%}
+{% block content %}
+
+<div class="container">
+    <div class="mt-3 bg-light rounded">
+        <h4>Welcome to Puppy User Name Check</h4>
+        <p>Let's see if your User Name is secure.</p>
+        <p>Fill out the form below with a User Name that has these restraints:</p>
+        <ul>
+            <li>Must have an upper case letter somewhere</li>
+            <li>Must have a lower case letter somewhere</li>
+            <li>Must have a number at the end</li>
+        </ul>
+
+        <!-- FORM -->
+        <!-- .form-inline is dropped since v5 -->
+        <form class="row gx-3 align-items-center" action="{{url_for('report')}}" method="get">
+            <div class="col-auto">
+                <!-- <label for="user">UserName</label> -->
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="userHelp" placeholder="Enter User Name">
+                <!-- <small id="userlHelp" class="form-text text-muted">We'll never store or share your username.</small> -->
+            </div>
+            
+            <!-- BUTTON -->
+            <div class="col-auto">
+                <!-- use SUBMIT and not BUTTON -->
+                <button type="submit" class="btn btn-info">Submit Form</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

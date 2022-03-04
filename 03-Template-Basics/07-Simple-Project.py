@@ -1,23 +1,38 @@
-# Set up your imports and your flask app.
+from flask import Flask, render_template, request
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # This home page should have the form.
-    pass
+    return render_template("07-My_Simple-Project-INDEX.html")
 
-
-# This page will be the page after the form
 @app.route('/report')
 def report():
-    # Check the user name for the 3 requirements.
+    username = request.args.get('username')
 
-    # HINTS:
-    # https://stackoverflow.com/questions/22997072/how-to-check-if-lowercase-letters-exist/22997094
-    # https://stackoverflow.com/questions/26515422/how-to-check-if-last-character-is-integer-in-raw-input
+    # we first initiate an empty list of unmet requirements
+    requirements = []
 
-    # Return the information to the report page html.
-    pass
+    # we check all three requirement one-by-one on the username
+    if not any(char.isupper() for char in username):
+        requirements.append("You didn't use an uppercase letter")
+
+    if not any(char.islower() for char in username):
+        requirements.append("You didn't use a lowercase letter")
+
+    if not username[-1].isdigit():
+        requirements.append("You didn't use a number")
+
+    # if the requirements is empty, then username is passed
+    passed = not requirements
+
+    # we send the `passed` status along with 
+    # the list of unmet requirements
+    return render_template(
+        "07-My_Simple-Project-REPORT.html",
+        username=username,
+        passed=passed,
+        requirements=requirements
+    )
 
 if __name__ == '__main__':
-    # Fill this in!
-    pass
+    app.run(debug=True)
