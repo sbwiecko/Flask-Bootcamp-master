@@ -8,8 +8,15 @@
 </p>
 
 <form method="POST">
-    {# This hidden_tag is a CSRF security feature. #}
-    {{ form.hidden_tag() }}
-    {{ form.breed.label }} {{ form.breed(class='some-css-class') }}
-    {{ form.submit() }}
+  <!-- The main difference btw GET and POST is that GET sends
+  information by appending them to the page request (URL),
+  POST via the HTML header (invisible) -->
+
+  {# This hidden_tag is a CSRF security feature. #}
+  <!-- Cross-site request forgery; hidden forms and others 
+  can work without the user's interaction or even knowledge -->
+  {{ form.hidden_tag() }}
+  {{ form.breed.label }} {{ form.breed() }}
+  <!-- {{ form.breed.label }} {{ form.breed(class='some-css-class') }} -->
+  {{ form.submit() }}
 </form>
