@@ -23,7 +23,27 @@ Migrate(app,db)
 ####################################
 ###################################
 
+### original class
 
+# class Puppy(db.Model):
+
+#     __tablename__ = 'puppies'
+
+#     id = db.Column(db.Integer,primary_key=True)
+#     name = db.Column(db.Text)
+#     age = db.Column(db.Integer)
+
+#     def __init__(self,name,age):
+#         self.name = name
+#         self.age = age
+#         self.breed = breed
+
+#     def __repr__(self):
+
+#         return f"Puppy {self.name} is {self.age} years old."
+
+
+### class upgraded
 class Puppy(db.Model):
 
     __tablename__ = 'puppies'

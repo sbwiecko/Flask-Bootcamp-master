@@ -1,28 +1,33 @@
 import os
+
 from forms import  AddForm , DelForm
+
 from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+
+
 app = Flask(__name__)
 # Key for Forms
-app.config['SECRET_KEY'] = 'mysecretkey'
+app.config['SECRET_KEY']='mysecretkey'
 
-############################################
 
-        # SQL DATABASE AND MODELS
+###########################
+# SQL DATABASE AND MODELS #
+###########################
 
-##########################################
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir,'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 Migrate(app,db)
 
+# could also define the class in a different file
 class Puppy(db.Model):
-
     __tablename__ = 'puppies'
-    id = db.Column(db.Integer,primary_key = True)
+
+    id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.Text)
 
     def __init__(self,name):
@@ -31,16 +36,17 @@ class Puppy(db.Model):
     def __repr__(self):
         return f"Puppy name: {self.name}"
 
-############################################
 
-        # VIEWS WITH FORMS
+####################
+# VIEWS WITH FORMS #
+####################
 
-##########################################
 @app.route('/')
 def index():
     return render_template('home.html')
 
-@app.route('/add', methods=['GET', 'POST'])
+
+@app.route('/add', methods=['GET','POST'])
 def add_pup():
     form = AddForm()
 
@@ -54,7 +60,8 @@ def add_pup():
 
         return redirect(url_for('list_pup'))
 
-    return render_template('add.html',form=form)
+    return render_template('add.html', form=form)
+
 
 @app.route('/list')
 def list_pup():
@@ -62,7 +69,7 @@ def list_pup():
     puppies = Puppy.query.all()
     return render_template('list.html', puppies=puppies)
 
-@app.route('/delete', methods=['GET', 'POST'])
+@app.route('/delete', methods=['GET','POST'])
 def del_pup():
 
     form = DelForm()
@@ -74,7 +81,7 @@ def del_pup():
         db.session.commit()
 
         return redirect(url_for('list_pup'))
-    return render_template('delete.html',form=form)
+    return render_template('delete.html', form=form)
 
 
 if __name__ == '__main__':

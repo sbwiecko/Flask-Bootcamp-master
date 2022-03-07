@@ -6,6 +6,10 @@ We first set up our migrations directory by running:
 
   flask db init
 
+!!! Make sure to delete any existing database in the directory !!!
+!!! We also need to upgrade Mako from Python3.8+ !!!
+!!! Please delete any existing `migrations` directory !!!
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -20,13 +24,30 @@ MacOS/Linux users run:
 export FLASK_APP=BasicModelApp.py
 
 Windows Users need to run:
-set FLASK_APP=BasicModelApp.py
+$env:FLASK_APP="BasicModelApp.py"
 
 This allows the flask command line tools to understand what Flask App you are
 referencing. More info on this: http://flask.pocoo.org/docs/0.12/cli/
 
 In general the flask app should be set to whatever flask app
 you happen to be working on.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+In the script of the model, don't forget to add the Migrate class
+
+```python
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
+# ...
+
+app = Flask(__name__)
+db = SQLAlchemy(app)
+Migrate(app, db)
+```
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,11 +70,15 @@ allows us to add a message to our unique id.
 
 The next command then will look like this for us:
 
-flask db migrate -m "created puppy table"
+  flask db migrate -m "created puppy table"
 
 Keep in mind this command is not actually running this migration or updating our
 database based on model changes. Its just created a new file that can later be
 used to update the database. To run the pending migration just created, we use
 the upgrade command. Which looks like this:
 
-flask db upgrade
+  flask db upgrade
+
+
+See more information there
+https://flask-migrate.readthedocs.io/en/latest/
