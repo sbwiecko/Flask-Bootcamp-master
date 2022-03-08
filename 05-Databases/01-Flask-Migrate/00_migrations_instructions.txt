@@ -24,7 +24,7 @@ MacOS/Linux users run:
 export FLASK_APP=BasicModelApp.py
 
 Windows Users need to run:
-$env:FLASK_APP="BasicModelApp.py"
+  $env:FLASK_APP="BasicModelApp.py"
 
 This allows the flask command line tools to understand what Flask App you are
 referencing. More info on this: http://flask.pocoo.org/docs/0.12/cli/
