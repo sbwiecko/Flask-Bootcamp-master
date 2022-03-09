@@ -2,7 +2,7 @@ import os
 
 from forms import  AddForm, DelForm, AddOwnerForm
 
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -63,6 +63,9 @@ class Owner(db.Model):
         self.name = name
         self.puppy_id = puppy_id
 
+    def __repr__(self):
+        return f"Owner name: {self.name}"
+
 
 ####################
 # VIEWS WITH FORMS #
@@ -96,19 +99,24 @@ def list_pup():
     puppies = Puppy.query.all()
     return render_template('list.html', puppies=puppies)
 
-@app.route('/add_owner')
-def add_owner():
+@app.route('/owner', methods=['GET','POST'])
+def owner():
     
     form = AddOwnerForm()
 
     if form.validate_on_submit():
+        name_owner = form.owner.data
         id_pup = form.id_pup.data
-        pup = Puppy.query.get(id_pup)
-        db.session.delete(pup)
+
+        new_owner = Owner(name_owner, id_pup)
+
+        flash(f"You now own puppy #{id_pup}!")
+
+        db.session.add(new_owner)
         db.session.commit()
 
         return redirect(url_for('list_pup'))
-    return render_template('delete.html', form=form)
+    return render_template('owner.html', form=form)
 
 
 @app.route('/delete', methods=['GET','POST'])
