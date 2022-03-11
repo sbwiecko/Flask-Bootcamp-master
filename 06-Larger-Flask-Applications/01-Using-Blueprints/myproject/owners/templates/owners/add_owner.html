@@ -1,5 +1,6 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {# entends from the root template directory of the prokect #}
 {% block content %}
+
 <div class="jumbotron">
   <h1>Add an owner</h1>
   <p>Add a new owner with the form below:</p>
@@ -11,4 +12,5 @@
       {{ form.submit() }}
   </form>
 </div>
+
 {% endblock %}
