@@ -1,7 +1,8 @@
-# This is app.py, this is the main file called.
+# This is app.py, this is the main file called
+
+# app object called from __init.py__ in myproject/
 from myproject import app
 from flask import render_template
-
 
 
 @app.route('/')

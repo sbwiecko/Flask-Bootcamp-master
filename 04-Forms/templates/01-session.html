@@ -15,6 +15,9 @@
             <ul>
                 {% for key in session.keys() %}
                 <li>{{ session[key]}}</li>
+                {# A session basically makes it possible to remember information from one request to another. The way Flask does this is by using a signed cookie. #}
+                {# So the user can look at the session contents, but not modify it unless they know the secret key #}
+                {# https://flask.palletsprojects.com/en/0.12.x/api/#sessions #}
                 {% endfor %}
             </ul>
         </div>

@@ -1,7 +1,7 @@
 # Environments
 *.env
 settings.json
-*__pycache*
-*migrations*
+**__pycache__/
+**migrations/
 
 *.sqlite
