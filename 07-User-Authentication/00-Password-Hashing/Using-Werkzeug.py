@@ -1,5 +1,5 @@
 # pip install Werkzeug
-from werkzeug.security import generate_password_hash,check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Can add options to this like salt and method
 # For example: method='pbkdf2:sha256', salt_length=8 (these are defaults)
