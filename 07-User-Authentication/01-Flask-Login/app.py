@@ -4,7 +4,6 @@ from myproject.forms import LoginForm, RegistrationForm
 
 from flask import render_template, redirect, request, url_for, flash,abort
 from flask_login import login_user, login_required, logout_user
-from werkzeug.security import generate_password_hash, check_password_hash
 
 
 @app.route('/')
@@ -13,7 +12,7 @@ def home():
 
 
 @app.route('/welcome')
-@login_required
+@login_required # the used should be logged in to see this view
 def welcome_user():
     return render_template('welcome_user.html')
 
@@ -21,7 +20,7 @@ def welcome_user():
 @app.route('/logout')
 @login_required
 def logout():
-    logout_user()
+    logout_user() # Flask Login
     flash('You logged out!')
     return redirect(url_for('home'))
 
@@ -34,14 +33,15 @@ def login():
         # Grab the user from our User Models table
         user = User.query.filter_by(email=form.email.data).first() # email are unique
         
-        # Check that the user was supplied and the password is right
+        # Check that the user was supplied and the password is correct
         # The verify_password method comes from the User object
         # https://stackoverflow.com/questions/2209755/python-operation-vs-is-not
 
-        if user.check_password(form.password.data) and user is not None:
-            #Log in the user
-
-            login_user(user)
+        if user is None:
+            return redirect(url_for('register'))
+        
+        if user.check_password(form.password.data):
+            login_user(user) # imported from Flask Login
             flash('Logged in successfully.')
 
             # If a user was trying to visit a page that requires
@@ -65,7 +65,7 @@ def register():
         user = User(
             email=form.email.data,
             username=form.username.data,
-            password=form.password.data
+            password=form.password.data, # the User class uses the password hash
         )
 
         db.session.add(user)

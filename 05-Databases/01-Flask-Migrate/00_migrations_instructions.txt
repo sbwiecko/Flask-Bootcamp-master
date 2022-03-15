@@ -18,6 +18,8 @@ If you get this error:
 Error: Could not locate Flask application.
 You did not provide the FLASK_APP environment variable.
 
+*** Usually in a large Flask app, flask db init is looking for an on app.py file ***
+
 Then run the following code:
 
 MacOS/Linux users run:
@@ -26,8 +28,6 @@ export FLASK_APP=BasicModelApp.py
 Windows Users need to run:
   $env:FLASK_APP="BasicModelApp.py"
 
-Usually in a large Flask app, the command should be done on app.py
-  $env:FLASK_APP="app.py"
 
 This allows the flask command line tools to understand what Flask App you are
 referencing. More info on this: http://flask.pocoo.org/docs/0.12/cli/
