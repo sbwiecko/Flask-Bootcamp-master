@@ -2,7 +2,7 @@ from myproject import app, db # from __init__.py
 from myproject.models import User
 from myproject.forms import LoginForm, RegistrationForm
 
-from flask import render_template, redirect, request, url_for, flash,abort
+from flask import render_template, redirect, request, url_for, flash, abort
 from flask_login import login_user, login_required, logout_user
 
 
@@ -75,6 +75,7 @@ def register():
         
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

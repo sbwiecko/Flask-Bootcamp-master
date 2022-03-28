@@ -27,9 +27,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'users.login'
 
 
-
 ##################################################
-
 
 from puppycompanyblog.core.views import core
 from puppycompanyblog.users.views import users
