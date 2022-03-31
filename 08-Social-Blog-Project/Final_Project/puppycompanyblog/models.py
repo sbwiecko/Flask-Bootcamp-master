@@ -36,7 +36,7 @@ class User(db.Model, UserMixin):
         self.username = username
         self.password_hash = generate_password_hash(password)
 
-    def check_password(self, password):
+    def validate_password(self, password):
         # https://stackoverflow.com/questions/23432478/flask-generate-password-hash-not-constant-output
         return check_password_hash(self.password_hash, password)
 

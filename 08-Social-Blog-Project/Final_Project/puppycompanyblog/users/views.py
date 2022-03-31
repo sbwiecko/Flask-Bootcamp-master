@@ -37,22 +37,21 @@ def login():
         # Check that the user was supplied and the password is right
         # The verify_password method comes from the User object
         # https://stackoverflow.com/questions/2209755/python-operation-vs-is-not
+        if user is not None:
+            if user.validate_password(form.password.data):
+                #Log in the user
+                login_user(user)
+                flash('Log in Success!')
 
-        if user.check_password(form.password.data) and user is not None:
-            #Log in the user
+                # If a user was trying to visit a page that requires a login
+                # flask saves that URL as 'next'.
+                next = request.args.get('next')
 
-            login_user(user)
-            flash('Log in Success!')
-
-            # If a user was trying to visit a page that requires a login
-            # flask saves that URL as 'next'.
-            next = request.args.get('next')
-
-            # So let's now check if that next exists, otherwise we'll go to
-            # the welcome page.
-            if next==None or not next[0]=='/':
-                next = url_for('core.index')
-            return redirect(next)
+                # So let's now check if that next exists, otherwise we'll go to
+                # the welcome page.
+                if next==None or not next[0]=='/':
+                    next = url_for('core.index')
+                return redirect(next)
     return render_template('login.html',form=form)
 
 
