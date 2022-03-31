@@ -1,17 +1,17 @@
 import os
-from flask import Flask,  request, jsonify
+
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from flask_restful import Api,Resource
-from secure_check import authenticate,identity
-from flask_jwt import JWT ,jwt_required
+from flask_restful import Api, Resource
+#from flask_jwt import JWT, jwt_required
 from flask_migrate import Migrate
 
 
 app = Flask(__name__)
 
-###################################################
-################ CONFIGURATIONS ###################
-##################################################
+##################
+# CONFIGURATIONS #
+##################
 
 # Often people will also separate these into a separate config.py file
 app.config['SECRET_KEY'] = 'mysecretkey'
@@ -21,34 +21,36 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 Migrate(app,db)
-jwt = JWT(app, authenticate, identity)
+
+#jwt = JWT(app, authenticate, identity)
+
 api = Api(app)
 
-###################################################
-################ MODELS ###########################
-##################################################
 
+##########
+# MODELS #
+##########
 
 class Puppy(db.Model):
     name = db.Column(db.String(80),primary_key=True)
 
-
     def __init__(self,name):
         self.name=name
 
+    # need to return something that looks like a JSON to REST
     def json(self):
         return {'name': self.name}
 
     def __str__(self):
         return f"{self.name} "
 
-###################################################
-################ RESOURCES ###########################
-##################################################
+
+#############
+# RESOURCES #
+#############
 
 class PuppyResource(Resource):
-    def get(self,name):
-
+    def get(self, name):
         pup = Puppy.query.filter_by(name=name).first()
 
         if pup:
@@ -57,8 +59,7 @@ class PuppyResource(Resource):
             # If you request a puppy not yet in the puppies list
             return {'name':'not found'}, 404
 
-    def post(self,name):
-
+    def post(self, name):
         pup = Puppy(name=name)
         db.session.add(pup)
         db.session.commit()
@@ -67,7 +68,6 @@ class PuppyResource(Resource):
 
 
     def delete(self,name):
-
         pup = Puppy.query.filter_by(name=name).first()
         db.session.delete(pup)
         db.session.commit()
@@ -75,17 +75,15 @@ class PuppyResource(Resource):
         return {'note':'delete successful'}
 
 
-
-
 class AllPuppies(Resource):
-
-    @jwt_required()
+    #@jwt_required()
     def get(self):
-        # return all the puppies :)
+        # return all the puppies as a list of Puppy objects
         puppies = Puppy.query.all()
 
         # return json of (puppies)
         return [pup.json() for pup in puppies]
+
 
 
 api.add_resource(PuppyResource, '/puppy/<string:name>')

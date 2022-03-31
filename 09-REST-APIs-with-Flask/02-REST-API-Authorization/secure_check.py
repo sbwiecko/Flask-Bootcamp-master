@@ -1,14 +1,18 @@
-# Realistically this would be a database table!
 from user import User
 
-users = [ User(1,'Jose','mypassword'),
-          User(2,'Mimi','secret')]
+# realistically this would be a database table!
+users = [
+    User(1, 'Jose', 'mypassword'),
+    User(2, 'Mimi', 'secret')
+]
 
+# mapping users to usernames (dict comprehension)
 username_table = {u.username: u for u in users}
 userid_table = {u.id: u for u in users}
 
 
 def authenticate(username, password):
+    # check if user exists, otherwise return None
     user = username_table.get(username, None)
     if user and password == user.password:
         return user
